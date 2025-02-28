@@ -16,15 +16,28 @@
             console.log("Echo Object:", window.Echo);
 
             if (window.Echo) {
-                // Echo.channel('post-channel').listen('PostEvent', (e) => {
-                //     document.getElementById('app').innerHTML = e.post;
-                // });
+                Echo.channel('post-channel').listen('PostEvent', (e) => {
+                    document.getElementById('app').innerHTML = e.post;
+                });
 
                 Echo.private('test-name').listen('PrivateMessage', (e) => {
                     console.log(e);
                     document.getElementById('app').innerHTML =e.userss+' '+e.test;
                 });
-
+                Echo.join('presensechannel-name').listen('PresenseMessage', (e) => {
+                    console.log(e);
+                    // document.getElementById('app').innerHTML =e.users;
+                }).here((user) => {
+                    console.log(user.length);
+                })
+                
+                .leaving((user) => {
+                    console.log("leaving "+user.name);
+                })
+                
+                .joining((user) => {
+                    console.log("JOining "+user.name);
+                })
                 
             } else {
                 console.error("Laravel Echo is not loaded.");

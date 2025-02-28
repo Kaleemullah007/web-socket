@@ -19,3 +19,6 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 Broadcast::channel('test-name', function ($user) {
     return !is_null($user);
 });
+Broadcast::channel('presensechannel-name', function ($user) {
+    return $user;
+});
