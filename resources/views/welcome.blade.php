@@ -24,8 +24,8 @@
                     console.log(e);
                     document.getElementById('app').innerHTML =e.userss+' '+e.test;
                 });
-                Echo.join('presensechannel-name').listen('PresenseMessage', (e) => {
-                    console.log(e);
+                Echo.join('presensechannel-name').listen('.PresenseMessagewwww', (data) => {
+                    console.log(data);
                     // document.getElementById('app').innerHTML =e.users;
                 }).here((user) => {
                     console.log(user.length);

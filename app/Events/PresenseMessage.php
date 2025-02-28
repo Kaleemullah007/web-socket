@@ -25,6 +25,14 @@ class PresenseMessage implements ShouldBroadcast
         $this->www = $www;
     }
 
+    public function broadcastAs()
+    {
+        return 'PresenseMessagewwww';
+    }
+    public function broadcastWith()
+    {
+        return ['pk' =>'Custom Params','www'=>$this->www];
+    }
     /**
      * Get the channels the event should broadcast on.
      *
@@ -34,4 +42,7 @@ class PresenseMessage implements ShouldBroadcast
     {
         return new PresenceChannel('presensechannel-name');
     }
+
+   
+ 
 }
