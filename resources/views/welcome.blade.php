@@ -16,10 +16,16 @@
             console.log("Echo Object:", window.Echo);
 
             if (window.Echo) {
-                Echo.channel('post-channel').listen('PostEvent', (e) => {
-                    document.getElementById('app').innerHTML = e.post;
-                    
+                // Echo.channel('post-channel').listen('PostEvent', (e) => {
+                //     document.getElementById('app').innerHTML = e.post;
+                // });
+
+                Echo.private('test-name').listen('PrivateMessage', (e) => {
+                    console.log(e);
+                    document.getElementById('app').innerHTML =e.userss+' '+e.test;
                 });
+
+                
             } else {
                 console.error("Laravel Echo is not loaded.");
             }
