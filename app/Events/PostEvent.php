@@ -13,6 +13,7 @@ use Illuminate\Queue\SerializesModels;
 class PostEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
+    
     public $post;
     /**
      * Create a new event instance.
@@ -31,7 +32,6 @@ class PostEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        // return new PrivateChannel('channel-name');
         return new channel('post-channel');
     }
 }
